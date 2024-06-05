@@ -10,10 +10,10 @@ class RemoteDataSourceImpl @Inject constructor(private val apiServices: APIServi
 
     override suspend fun getNewsByTopHeadline(
         country: String,
-        query: String,
+        category: String
     ): Response<ArticlesResponse> = apiServices.getNewsByTopHeadline(
         country,
-        query,
+        category,
     )
 
 }

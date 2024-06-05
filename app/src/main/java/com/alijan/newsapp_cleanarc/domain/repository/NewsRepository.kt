@@ -7,7 +7,7 @@ interface NewsRepository {
 
     suspend fun getNewsByTopHeadline(
         country: String,
-        query: String,
+        category: String
     ): NetworkResponse<ArticlesResponse>
 
 }

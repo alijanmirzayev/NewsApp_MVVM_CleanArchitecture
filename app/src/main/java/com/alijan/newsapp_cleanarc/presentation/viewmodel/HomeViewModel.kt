@@ -22,11 +22,11 @@ class HomeViewModel @Inject constructor(private val getNewsByHeadline: GetNewsBy
         getNewsByTopHeadline("us","business")
     }
 
-    fun getNewsByTopHeadline(country: String, query: String) {
+    fun getNewsByTopHeadline(country: String, category: String) {
         _newsList.value = NetworkResponse.Loading()
         viewModelScope.launch {
             try {
-                val result = getNewsByHeadline.execute(country, query)
+                val result = getNewsByHeadline.execute(country, category)
                 _newsList.value = result
             } catch (e: Exception) {
                 _newsList.value = NetworkResponse.Error(e.localizedMessage.toString())

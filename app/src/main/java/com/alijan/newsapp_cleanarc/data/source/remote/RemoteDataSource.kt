@@ -7,7 +7,7 @@ interface RemoteDataSource {
 
     suspend fun getNewsByTopHeadline(
         country: String,
-        query: String
+        category: String
     ): Response<ArticlesResponse>
 
 }

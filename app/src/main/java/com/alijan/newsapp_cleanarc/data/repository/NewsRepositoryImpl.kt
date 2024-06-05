@@ -13,10 +13,10 @@ class NewsRepositoryImpl @Inject constructor(private val remoteDataSource: Remot
 
     override suspend fun getNewsByTopHeadline(
         country: String,
-        query: String,
+        category: String
     ): NetworkResponse<ArticlesResponse> {
         return withContext(Dispatchers.IO){
-            val response = remoteDataSource.getNewsByTopHeadline(country, query)
+            val response = remoteDataSource.getNewsByTopHeadline(country, category)
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@withContext NetworkResponse.Success(it)

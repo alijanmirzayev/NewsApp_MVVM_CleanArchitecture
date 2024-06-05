@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.alijan.newsapp_cleanarc.data.model.HeadlineCategory" />
+    </data>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonHeadlineCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+        app:strokeWidth="0.5dp"
+        app:strokeColor="@{item.selected ? @color/black : @color/white}"
+        android:backgroundTint="@{item.selected ? @color/white : @color/black}"
+        android:text="@{item.categoryName}"
+        android:textColor="@{item.selected ? @color/black : @color/white}" />
+</layout>
