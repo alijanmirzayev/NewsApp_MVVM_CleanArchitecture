@@ -19,14 +19,14 @@ class HomeViewModel @Inject constructor(private val getNewsByHeadline: GetNewsBy
     val newsList: LiveData<NetworkResponse<ArticlesResponse>> get() = _newsList
 
     init {
-        getNewsByTopHeadline("us","business","61932618445b4349be6e8182a4ddf2e1")
+        getNewsByTopHeadline("us","business")
     }
 
-    fun getNewsByTopHeadline(country: String, query: String, apiKey: String) {
+    fun getNewsByTopHeadline(country: String, query: String) {
         _newsList.value = NetworkResponse.Loading()
         viewModelScope.launch {
             try {
-                val result = getNewsByHeadline.execute(country, query, apiKey)
+                val result = getNewsByHeadline.execute(country, query)
                 _newsList.value = result
             } catch (e: Exception) {
                 _newsList.value = NetworkResponse.Error(e.localizedMessage.toString())

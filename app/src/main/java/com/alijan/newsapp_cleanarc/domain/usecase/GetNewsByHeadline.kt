@@ -9,9 +9,8 @@ class GetNewsByHeadline(private val newsRepository: NewsRepository) {
     suspend fun execute(
         country: String,
         query: String,
-        apiKey: String
     ): NetworkResponse<ArticlesResponse> {
-        return newsRepository.getNewsByTopHeadline(country, query, apiKey)
+        return newsRepository.getNewsByTopHeadline(country, query)
     }
 
 }

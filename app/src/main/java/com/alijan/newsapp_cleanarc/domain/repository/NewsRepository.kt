@@ -8,7 +8,6 @@ interface NewsRepository {
     suspend fun getNewsByTopHeadline(
         country: String,
         query: String,
-        apiKey: String
     ): NetworkResponse<ArticlesResponse>
 
 }
